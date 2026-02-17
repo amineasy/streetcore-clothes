@@ -8,19 +8,84 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  --font-sans: var(--font-iranyekan), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+.font-iranyekan {
+  font-family: var(--font-iranyekan);
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-sans);
 }
+
+@theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-tablet: 896px;
+  --breakpoint-laptop: 1440px;
+  --breakpoint-desktop: 1920px;
+
+  --color-freshgreen-100: #d8f3dc;
+  --color-freshgreen-200: #b7e4c7;
+  --color-freshgreen-300: #95d5b2;
+  --color-freshgreen-400: #74c69d;
+  --color-freshgreen-500: #52b788;
+  --color-freshgreen-600: #40916c;
+  --color-freshgreen-700: #2d6a4f;
+  --color-freshgreen-800: #1b4332;
+  --color-freshgreen-900: #081c15;
+
+  --color-freshcrips-100: #daf2d7;
+  --color-freshcrips-200: #e4fde1;
+  --color-freshcrips-300: #c6edc3;
+  --color-freshcrips-400: #a7dca5;
+  --color-freshcrips-500: #90cf8e;
+
+  --color-softlavender-100: #8e9aaf;
+  --color-softlavender-200: #cbc0d3;
+  --color-softlavender-300: #efd3d7;
+  --color-softlavender-400: #feeafa;
+  --color-softlavender-500: #dee2ff;
+
+
+  --color-springgreen-100: #007F5F;
+  --color-springgreen-200: #2B9348;
+  --color-springgreen-300: #55A630;
+  --color-springgreen-400: #80B918;
+  --color-springgreen-500: #AACC00;
+  --color-springgreen-600: #BFD200;
+  --color-springgreen-700: #D4D700;
+  --color-springgreen-800: #DDDF00;
+  --color-springgreen-900: #EEEF20;
+  --color-springgreen-1000: #FFFF3F;
+
+
+  --color-naturetone-100: #6B9080;
+  --color-naturetone-200: #A4C3B2;
+  --color-naturetone-300: #CCE3DE;
+  --color-naturetone-400: #EAF4F4;
+  --color-naturetone-500: #F6FFF8;
+
+
+  --color-background : #49111c;
+}
+
+
+
+

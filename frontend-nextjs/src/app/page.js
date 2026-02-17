@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>hello</div>;
+  return <div className="lg:pt-30  "></div>;
 }
