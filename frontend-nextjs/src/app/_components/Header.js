@@ -1,16 +1,21 @@
 import Image from "next/image";
 import Logo from "../../../public/Free Logo [from www.logo.im] (1).svg";
-import searchIcon from "@/app/_styles/svg/icons8-search.svg";
-import { CiUser } from "react-icons/ci";
+import SearchIcon from "@/app/_styles/svg/icons8-search.svg";
 import HeaderButton from "./HeaderButton";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { BiHomeAlt2 } from "react-icons/bi";
+import Input from "./Input";
+import SignUpForm from "./SignUpForm";
+import Modal from "@/app/_components/Modal";
+import { CiUser } from "react-icons/ci";
+
+
 
 function Header() {
   return (
     <>
-      <header className="fixed top-0 left-0 z-50 w-full bg-naturetone-500 shadow-lg">
+      <header className="bg-naturetone-500 fixed top-0 left-0 z-50 w-full shadow-lg">
         <div className="relative flex items-center justify-between gap-5 pt-2">
           <div className="flex items-center gap-5">
             <Image
@@ -21,31 +26,34 @@ function Header() {
               className=""
             />
 
-            {/* بخش سرچ (با آیکون داخل input) */}
-            <div className="relative">
-              {" "}
-              {/* flex-1 تا عرض بگیره */}
-              <input
-                type="text"
-                placeholder="کلمه مورد نظر را وارد کنید..."
-                className="focus:ring-softlavender-200 h-12 w-125 rounded border-[0.1px] bg-white pr-12 pl-4 text-right shadow-md focus:ring-2 focus:outline-none lg:w-100 xl:w-110 2xl:w-125"
-              />
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
-                <Image src={searchIcon} alt="جستجو" width={20} height={20} />
-              </div>
-            </div>
+            <Input
+              type="text"
+              svg={true}
+              placeholder="کلمه مورد نظر را وراد کنید"
+              icon={SearchIcon}
+              classNameInput=" h-12 w-125 rounded border-[0.1px] bg-white pr-12 pl-4 text-right   lg:w-100 xl:w-110 2xl:w-125"
+            />
           </div>
 
           {/* بخش ورود/کاربر */}
           <div className="flex flex-row gap-3">
-            <HeaderButton span1="کاربر" span2="ورود / ثبت نام">
+            {/* <HeaderButton span1="کاربر" span2="ورود / ثبت نام">
               {" "}
               <CiUser size={24} className="text-gray-700" />
-            </HeaderButton>
-            <HeaderButton span1="سبد خرید" span2="خالی است">
-              {" "}
-              <MdOutlineShoppingCart size={24} className="text-gray-700" />
-            </HeaderButton>
+            </HeaderButton> */}
+
+            
+            {/* <Modal>
+              <Modal.Open>
+                <HeaderButton span1="سبد خرید" span2="خالی است">
+                  {" "}
+                  <MdOutlineShoppingCart size={24} className="text-gray-700" />
+                </HeaderButton>
+              </Modal.Open>
+              <Modal.Content>
+                <SignUpForm />
+              </Modal.Content>
+            </Modal> */}
           </div>
         </div>
         <div className="flex items-center justify-between gap-5">
@@ -58,11 +66,11 @@ function Header() {
             </li>
             <li className="group hover:bg-freshgreen-400 cursor-pointer rounded-xl p-2 transition-all duration-250 ease-out">
               <span>مردانه</span>
-              <div className="invisible absolute bg-naturetone-500 top-full right-0 z-50 mr-3 -translate-y-2 scale-95 rounded-b-xl  opacity-0 shadow-lg transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 lg:mt-0.5 lg:w-250 2xl:mt-0 2xl:w-350">
+              <div className="bg-naturetone-500 invisible absolute top-full right-0 z-50 mr-3 -translate-y-2 scale-95 rounded-b-xl opacity-0 shadow-lg transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 lg:mt-0.5 lg:w-250 2xl:mt-0 2xl:w-350">
                 <div className="m-3 grid h-full grid-cols-6">
                   <div className="flex h-full flex-col justify-between gap-3 leading-relaxed font-medium lg:text-xs 2xl:text-sm">
                     <ul className="">
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         تیشرت
                       </li>
                       <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -73,7 +81,7 @@ function Header() {
                       </li>
                     </ul>
                     <ul>
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         پیراهن
                       </li>
                       <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -84,7 +92,7 @@ function Header() {
                       </li>
                     </ul>
                     <ul>
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         شلوار و اسلش
                       </li>
                       <li className="mr-3 opacity-70 hover:opacity-100">
@@ -104,7 +112,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-evenly gap-3 text-sm leading-relaxed font-medium">
                       <ul className="">
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           کفش و کتان
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -124,12 +132,12 @@ function Header() {
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           صندلی و دمپایی
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           ست
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -156,7 +164,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-between gap-3 text-sm leading-relaxed font-medium">
                       <ul className="">
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           کاپشن و پالتو
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -167,17 +175,17 @@ function Header() {
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           سویشرت و هودی
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           بافت و ژاکت
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           تک کت و جلیقه
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -188,7 +196,7 @@ function Header() {
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           لباس زیر
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -203,7 +211,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-between gap-3 text-sm leading-relaxed font-medium">
                       <ul className="">
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           اکسسوری
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -237,7 +245,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-between gap-3 text-sm leading-relaxed font-medium">
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           آرایشی بهداشتی
                         </li>
                         <li className="mr-3 opacity-70 hover:opacity-100">
@@ -258,16 +266,16 @@ function Header() {
 
             <li className="group hover:bg-freshgreen-400 cursor-pointer rounded-xl p-2 transition-all duration-250 ease-out">
               <span>زنانه</span>
-              <div className="invisible absolute top-full right-0 z-50 mr-3 -translate-y-2 scale-95 rounded-b-xl bg-naturetone-500 opacity-0 shadow-lg transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 lg:mt-0.5 lg:w-250 2xl:mt-0 2xl:w-350">
+              <div className="bg-naturetone-500 invisible absolute top-full right-0 z-50 mr-3 -translate-y-2 scale-95 rounded-b-xl opacity-0 shadow-lg transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 lg:mt-0.5 lg:w-250 2xl:mt-0 2xl:w-350">
                 <div className="m-3 grid h-full grid-cols-6">
                   <div className="flex h-full flex-col justify-between gap-3 leading-relaxed font-medium lg:text-xs 2xl:text-sm">
                     <ul className="">
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         مانتو
                       </li>
                     </ul>
                     <ul>
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         شلوار و شلوراک
                       </li>
                       <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -278,7 +286,7 @@ function Header() {
                       </li>
                     </ul>
                     <ul>
-                      <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                      <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                         کیف و کفش
                       </li>
                       <li className="mr-3 opacity-70 hover:opacity-100">کیف</li>
@@ -299,7 +307,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-evenly gap-3 text-sm leading-relaxed font-medium">
                       <ul className="">
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           ست
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -319,17 +327,17 @@ function Header() {
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           سویشرت و هودی
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           کاپشن و پالتو
                         </li>
                       </ul>
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           بافت و ژاکت
                         </li>
                       </ul>
@@ -339,7 +347,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-between gap-3 text-sm leading-relaxed font-medium">
                       <ul className="">
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           اکسسوری
                         </li>
                         <li className="mt-1 mr-3 opacity-70 hover:opacity-100">
@@ -373,7 +381,7 @@ function Header() {
                   <div>
                     <div className="flex h-full flex-col justify-between gap-3 text-sm leading-relaxed font-medium">
                       <ul>
-                        <li className="font-semibold text-red-400 hover:text-red-500 underline underline-offset-3">
+                        <li className="font-semibold text-red-400 underline underline-offset-3 hover:text-red-500">
                           آرایشی بهداشتی
                         </li>
                         <li className="mr-3 opacity-70 hover:opacity-100">
@@ -401,10 +409,10 @@ function Header() {
               حراج
             </li>
           </ul>
-          <HeaderButton span1="09152548">
+          {/* <HeaderButton span1="09152548">
             {" "}
             <IoCallOutline size={24} className="text-gray-700" />
-          </HeaderButton>
+          </HeaderButton> */}
         </div>
       </header>
     </>

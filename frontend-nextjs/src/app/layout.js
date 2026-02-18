@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${iranyekan.variable} font-iranyekan h-[200vh] antialiased bg-red-600`}
+        className={`${iranyekan.variable} font-iranyekan  antialiased bg-red-600`}
       >
         <div className="hidden lg:block">
           <Header />
@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
           <BottomBar />
         </div>
 
-        <main className=" bg-red-500  ">{children}</main>
+        <main className="  ">{children}</main>
       </body>
     </html>
   );
