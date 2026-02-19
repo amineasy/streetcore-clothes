@@ -29,7 +29,7 @@ function LoginForm({ switchToSignUp }) {
           placeholder="رمز عبور را وارد کنید"
           icon={<CiLock size={24} />}
         />
-        <div className="flex items-center gap-3 pt-8">
+        <div className="flex items-center gap-3 pt-20">
           <input
             type="checkbox"
             id="terms"
@@ -37,7 +37,7 @@ function LoginForm({ switchToSignUp }) {
           />
           <label
             htmlFor="terms"
-            className="cursor-pointer text-sm leading-relaxed text-gray-600 select-none"
+            className="cursor-pointer  text-sm leading-relaxed text-gray-600 select-none"
           >
             با{" "}
             <a href="#" className="font-medium text-red-500 hover:underline">
@@ -55,12 +55,12 @@ function LoginForm({ switchToSignUp }) {
         </div>
         <button
           type="submit"
-          className="mt-5 h-10 w-full rounded-xl bg-red-500"
+          className="mt-2 h-10 w-full rounded-xl bg-red-500"
         >
           ورود
         </button>
         <p
-          className="mt-5 mr-4 ml-auto cursor-pointer font-extrabold text-gray-700 underline underline-offset-6"
+          className="mt-3 mr-4 ml-auto cursor-pointer font-extrabold text-gray-700 underline underline-offset-6"
           onClick={switchToSignUp}
         >
           ثبت نام نکردید؟
