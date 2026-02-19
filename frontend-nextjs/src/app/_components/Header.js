@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Logo from "../../../public/Free Logo [from www.logo.im] (1).svg";
 import SearchIcon from "@/app/_styles/svg/icons8-search.svg";
@@ -6,12 +7,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { BiHomeAlt2 } from "react-icons/bi";
 import Input from "./Input";
-import SignUpForm from "./SignUpForm";
-import Modal from "@/app/_components/Modal";
-import { CiUser } from "react-icons/ci";
-
-
-
+import AuthModal from "./AuthModal";
 function Header() {
   return (
     <>
@@ -37,23 +33,12 @@ function Header() {
 
           {/* بخش ورود/کاربر */}
           <div className="flex flex-row gap-3">
-            {/* <HeaderButton span1="کاربر" span2="ورود / ثبت نام">
-              {" "}
-              <CiUser size={24} className="text-gray-700" />
-            </HeaderButton> */}
+            <AuthModal />
 
-            
-            {/* <Modal>
-              <Modal.Open>
-                <HeaderButton span1="سبد خرید" span2="خالی است">
-                  {" "}
-                  <MdOutlineShoppingCart size={24} className="text-gray-700" />
-                </HeaderButton>
-              </Modal.Open>
-              <Modal.Content>
-                <SignUpForm />
-              </Modal.Content>
-            </Modal> */}
+            <HeaderButton span1="سبد خرید" span2="خالی است">
+              {" "}
+              <MdOutlineShoppingCart size={24} className="text-gray-700" />
+            </HeaderButton>
           </div>
         </div>
         <div className="flex items-center justify-between gap-5">
@@ -409,10 +394,10 @@ function Header() {
               حراج
             </li>
           </ul>
-          {/* <HeaderButton span1="09152548">
+          <HeaderButton span1="09152548">
             {" "}
             <IoCallOutline size={24} className="text-gray-700" />
-          </HeaderButton> */}
+          </HeaderButton>
         </div>
       </header>
     </>
